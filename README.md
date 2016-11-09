@@ -26,9 +26,24 @@ At the risk of seeming overly-complicated for it's application, the goal of havi
     RGB LCD display provides space for custom text to be displayed (welcome messages customized to the user, bright-red access denied messages, etc)
     Uses commonly found, cheap, 125kHz RFID tags
 
--------------------------------------
+
 While I did write a script that keeps the local and cloud based databases in sync, it is specific to our Member Management System (Nexudus spaces) and it is not as robust as I want it to be yet, so I've omitted the code here.  If there is someone out there who uses this software (perhaps another makerspace) and would like the code, I'll be happy to release it in a one-on-one message/email. 
--------------------------------------
+
+
+#ToBuild
+1. Build circuit in accordance with the Fritzing Diagram
+2. Copy the contents of the opt directory into the opt directory in the root of the Intel Edison
+3. May need to download packages sqlite3 & json-c from Alex-T's Intel Edison repo:
+    http://alextgalileo.altervista.org/edison-package-repo-configuration-instructions.html
+4. Run make in doorapp, and run make in memberdatabase
+5. This code assumes that you have a member database called /opt/memberdatabase/members.db with a table called member with the schema:
+    CREATE TABLE MEMBER(ID INT PRIMARY KEY NOT NULL,FNAME TEXT NOT NULL,SALUTATION TEXT NOT NULL,ACCID INT UNIQUE,ACTIVE BOOLEAN NOT NULL CHECK (ACTIVE IN (0,1)),LASTMOD TEXT,TYPE TEXT, LASTCHECKED INT);
+    
+    Where ACCID is the RFID tag number for a user, ACTIVE is whether that user should be allowed into the space, and SALUTATION is the nickname which will be displayed if they are allowed entry.
+    
+/opt/libs/doorappMacros.h contains the database name/location, what allowed and denied messages to display, and a few other paramenters.
+
+
 In the future, I hope to add a few more features, including:
 
     Access event logging
