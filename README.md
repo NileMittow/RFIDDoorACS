@@ -45,11 +45,10 @@ While I did write a script that keeps the local and cloud based databases in syn
 
 
 In the future, I hope to add a few more features, including:
-
-   Access event logging
-   Webcam to snap a picture of everyone who scans in
-   Remote door open via webapp
-   Single custom PCB that only requires the LCD, RFID, & Edison to be plugged in
+   - Access event logging
+   - Webcam to snap a picture of everyone who scans in
+   - Remote door open via webapp
+   - Single custom PCB that only requires the LCD, RFID, & Edison to be plugged in
 
 
 
